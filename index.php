@@ -112,12 +112,10 @@ function test_input($data) {
 
 
 <?php
-echo "<h2>Kết quả:</h2>";
+echo "<h2>Xem kết quả:</h2>";
 echo $name;
 echo "<br>";
 echo $email;
-echo "<br>";
-
 echo "<br>";
 
 $text = '';
@@ -127,7 +125,11 @@ else {
 		if ( $gender == 'male' )
 			$text = 'Trai thẳng 100%';
 		else 
-			$text = 'Chào mừng bạn đến với thế giới thứ 3.';
+		{
+			if ( $gender == 'bede' )
+				$text = 'Chào mừng bạn đến với thế giới thứ 3.';
+		
+		}
 	}
 
 echo $text;
