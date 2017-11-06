@@ -122,11 +122,14 @@ echo "<br>";
 
 $text = '';
 if( $gender == 'female' ) 
-	$text = 'Bạn có 50% bê đê'.
-else if ( $gender == 'male' )
-	$text = 'Trai thẳng 100%'.
-else 
-	$text = 'Chào mừng bạn đến với thế giới thứ 3.'
+	$text = 'Bạn có 50% bê đê';
+else {
+		if ( $gender == 'male' )
+			$text = 'Trai thẳng 100%';
+		else 
+			$text = 'Chào mừng bạn đến với thế giới thứ 3.';
+	}
+
 echo $text;
 ?>
 
