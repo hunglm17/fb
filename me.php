@@ -19,7 +19,7 @@ try {
 echo 'Logged in as ' . $userNode->getName();
 echo '<br>';
 $id_user = $userNode->getId();
-echo $id_user;
+//echo $id_user;
 #POST DATA
 // $linkData = [
 //   'link' => 'http://haanhduclinh.com',

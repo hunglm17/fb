@@ -109,10 +109,10 @@ function test_input($data) {
 
 <h2>Kiểm tra giới tính của bạn.</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Tên: <input type="text" name="name" value="<?php echo $name;?>">
+  Tên: <input type="text" name="name" value="<?php echo $userNode->getName();?>">
   <span class="error">* <?php echo $nameErr;?></span>
   <br>
-  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+  E-mail: <input type="text" name="email" value="<?php echo $user['email'];?>">
   <span class="error">* <?php echo $emailErr;?></span>
   <br>  
   Giới tính:
