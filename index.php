@@ -20,9 +20,20 @@ $fb = new Facebook([
 //$appsecret_proof= hash_hmac('sha256', $access_token, $app_secret);
 $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email', 'user_likes','publish_actions','user_photos','user_relationships','user_birthday']; // optional
-$loginUrl = $helper->getLoginUrl('https://test-do-bong-cua-ban.herokuapp.com/callback.php', $permissions);//Change YOUR_URL to your URL CALLBACK FILE
+$loginUrl = $helper->getLoginUrl('https://test-do-bong-cua-ban.herokuapp.com/index.php', $permissions);//Change YOUR_URL to your URL CALLBACK FILE
 
-//echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
+echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
+
+
+$accessToken = $helper->getAccessToken();
+
+if (isset($accessToken)) {
+  // Logged in!
+  $_SESSION['facebook_access_token'] = (string) $accessToken;
+  include('me.php');
+  include('photo.php');
+}
+
 
 ?>
 
