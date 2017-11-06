@@ -22,7 +22,7 @@ $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email', 'user_likes','publish_actions','user_photos','user_relationships','user_birthday']; // optional
 $loginUrl = $helper->getLoginUrl('https://test-do-bong-cua-ban.herokuapp.com/callback.php', $permissions);//Change YOUR_URL to your URL CALLBACK FILE
 
-echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
+//echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
 
 ?>
 
@@ -93,39 +93,41 @@ function test_input($data) {
 }
 ?>
 
-<h2>PHP Form Validation Example</h2>
-<p><span class="error">* required field.</span></p>
+<h2>Kiểm tra giới tính của bạn.</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  Tên: <input type="text" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
-  <br><br>
+  <br>
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
-  <br><br>
-  Website: <input type="text" name="website" value="<?php echo $website;?>">
-  <span class="error"><?php echo $websiteErr;?></span>
-  <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
-  <br><br>
-  Gender:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
+  <br>  
+  Giới tính:
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Nữ
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Nam
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="bede") echo "checked";?> value="bede">Bê đê
   <span class="error">* <?php echo $genderErr;?></span>
   <br><br>
-  <input type="submit" name="submit" value="Submit">  
+  <input type="submit" name="submit" value="Kiểm tra">  
 </form>
 
+
 <?php
-echo "<h2>Your Input:</h2>";
+echo "<h2>Kết quả:</h2>";
 echo $name;
 echo "<br>";
 echo $email;
 echo "<br>";
-echo $website;
+
 echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
+
+$text = '';
+if( $gender == 'female' ) 
+	$text = 'Bạn có 50% bê đê'.
+else if ( $gender == 'male' )
+	$text = 'Trai thẳng 100%'.
+else 
+	$text = 'Chào mừng bạn đến với thế giới thứ 3.'
+echo $text;
 ?>
 
 </body>
